@@ -1,0 +1,65 @@
+{
+  "name": "hls-observer",
+  "version": "0.0.1",
+  "description": "Read an parse (H)TTP (L)ive (S)treaming to JSON format.",
+  "keywords": [
+    "hls",
+    "m3u8",
+    "parser",
+    "streaming",
+    "observer"
+  ],
+  "homepage": "https://github.com/joaopaulovieira/hls-observer",
+  "bugs": {
+    "url": "https://github.com/joaopaulovieira/hls-observer/issues",
+    "email": "vieira.joaopaulo.91@gmail.com"
+  },
+  "license": "BSD-3-Clause",
+  "author": {
+    "name": "Joao Paulo Vieira",
+    "email": "vieira.joaopaulo.91@gmail.com"
+  },
+  "files": [
+    "/dist",
+    "/src"
+  ],
+  "main": "dist/hls-observer.js",
+  "module": "dist/hls-observer.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:joaopaulovieira/hls-observer.git"
+  },
+  "scripts": {
+    "bundle-check": "ANALYZE_BUNDLE=true rollup --config",
+    "build": "rollup --config",
+    "release": "MINIMIZE=true rollup --config",
+    "start": "DEV=true rollup --config --watch",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "echo no tests configured yet",
+    "test:coverage": "open coverage/lcov-report/index.html"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@rollup/plugin-babel": "^5.2.1",
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "coveralls": "^3.1.0",
+    "eslint": "^7.13.0",
+    "rollup": "^2.33.2",
+    "rollup-plugin-filesize": "^9.0.2",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-sizes": "^1.0.3",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-visualizer": "^4.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
