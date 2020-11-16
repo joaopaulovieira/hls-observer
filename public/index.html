@@ -2,14 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>HLS-observer demo</title>
-    <meta name="description" content="HLS-observer demo">
+    <title>HLS observer demo</title>
+    <meta name="description" content="HLS observer demo">
     <meta name="author" content="João Paulo Vieira">
   </head>
   <body>
     <script type="text/javascript" charset="utf-8" src="hls-observer.js"></script>
     <script>
       const parser = new HLSObserver()
+      const parseCallback = (item, iterator) => console.log(`Item ${++iterator}: ${item}`)
+
+      /* parse a fetch response */
+      // fetch('./sample.m3u8').then(response => {
+      //  const fetchReader = response.body.getReader()
+      //  fetchReader.read().then(buffer => parser.readManifest(buffer))
+      // })
+
+      /* fetch and parse one manifest */
+      parser.fetchAndParse('./sample.m3u8')
     </script>
   </body>
 </html>
