@@ -3,6 +3,13 @@ export default class HLSObserver {
     console.log('instance created!') // eslint-disable-line no-console
   }
 
+  fetchAndParse(url, fetchOptions = {}) {
+    fetch(url, fetchOptions).then(response => {
+      const fetchReader = response.body.getReader()
+      fetchReader.read().then(buffer => this.readManifest(buffer))
+    })
+  }
+
   readManifest(buffer) {
     const manifest = new TextDecoder().decode(buffer.value, { stream: !buffer.done })
     const linesArray = manifest.split('\n')
