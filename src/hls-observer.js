@@ -1,21 +1,13 @@
 import Transcriptore from 'transcriptore.js/dist/transcriptore.modern.mjs'
 
-export default class HLSObserver {
+export default class HLSObserver extends Transcriptore {
   constructor() {
-    this.parser = new Transcriptore()
+    super()
     console.log('instance created!') // eslint-disable-line no-console
   }
 
-  fetchAndParse(url, fetchOptions = {}) {
-    fetch(url, fetchOptions).then(response => {
-      const fetchReader = response.body.getReader()
-      fetchReader.read().then(buffer => this.readManifest(buffer))
-    })
-  }
-
   readManifest(buffer) {
-    const manifest = this.parser.readBuffer(buffer)
-
+    const manifest = this.readBuffer(buffer)
     const linesArray = manifest.split('\n')
     const customizedLinesArray = manifest.replace(/.m3u8\n/g, '.m3u8 - ').split('\n')
     const itemsArray = manifest.replace(/\n/g, ',').split(',')

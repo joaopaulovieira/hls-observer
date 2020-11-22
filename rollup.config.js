@@ -73,6 +73,7 @@ const ESMBundle = {
       plugins: ['@babel/plugin-transform-runtime'],
       babelHelpers: 'runtime',
     }),
+    resolve({ modulesOnly: true }),
     ...plugins,
   ],
 }
