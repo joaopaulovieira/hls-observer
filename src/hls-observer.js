@@ -1,5 +1,8 @@
+import Transcriptore from 'transcriptore.js/dist/transcriptore.modern.mjs'
+
 export default class HLSObserver {
   constructor() {
+    this.parser = new Transcriptore()
     console.log('instance created!') // eslint-disable-line no-console
   }
 
@@ -11,7 +14,8 @@ export default class HLSObserver {
   }
 
   readManifest(buffer) {
-    const manifest = new TextDecoder().decode(buffer.value, { stream: !buffer.done })
+    const manifest = this.parser.readBuffer(buffer)
+
     const linesArray = manifest.split('\n')
     const customizedLinesArray = manifest.replace(/.m3u8\n/g, '.m3u8 - ').split('\n')
     const itemsArray = manifest.replace(/\n/g, ',').split(',')
