@@ -24,7 +24,7 @@
     "/src"
   ],
   "main": "dist/hls-observer.js",
-  "module": "dist/hls-observer.esm.js",
+  "module": "dist/hls-observer.mjs",
   "repository": {
     "type": "git",
     "url": "git@github.com:joaopaulovieira/hls-observer.git"
